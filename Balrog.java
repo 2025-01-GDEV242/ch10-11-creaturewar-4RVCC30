@@ -1,20 +1,21 @@
 
 
 /**
- * The Human class implements a wrapper for the base Creature class with the following additions
- * Implements a maximum/minimum strength for the creature type [20/5]
- * Implements a maximum/minimum hitpoint total for the creature type [25/5]
+ * The Balrog class implements a wrapper for the base Demon class with the following additions
+ * Implements a maximum/minimum strength for the Demon type [100/50]
+ * Implements a maximum/minimum hitpoint total for the Demon type [200/80]
+ * Can attack twice
  * 
  * @author Emery Vallejo
  * @version 2025-04 v1.1
  */
-public class Human extends Creature
+public class Balrog extends Demon
 {
     // instance variables - replace the example below with your own
-    private static final int MAX_HUMAN_HP = 25;
-    private static final int MIN_HUMAN_HP = 5;
-    private static final int MAX_HUMAN_STR = 20;
-    private static final int MIN_HUMAN_STR = 5;
+    private static final int MAX_BALROG_HP = 200;
+    private static final int MIN_BALROG_HP = 80;
+    private static final int MAX_BALROG_STR = 100;
+    private static final int MIN_BALROG_STR = 50;
 
     /**
      * Constructor for objects of class Human -
@@ -25,7 +26,7 @@ public class Human extends Creature
      * return a Human object with values in the appropriate range
      * 
      */
-    public Human()
+    public Balrog()
     {
         // note how the class uses the static randomizer class to
         // generate the values. This localizes the need to know 
@@ -33,14 +34,19 @@ public class Human extends Creature
         // max-min is range of values
         // range + min ensures that the values don't start at one.
         super(
-            Randomizer.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR,
-            Randomizer.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP        
+        MAX_BALROG_STR,
+        MIN_BALROG_STR,
+        MAX_BALROG_HP,
+        MIN_BALROG_HP
         );
           
     }
     
-    
-    // attack() - not overridden because Humans generate basic damage
+    @Override
+    public int attack()
+    {
+        return (super.attack() + super.attack());
+    }
     // takeDamage(int) - not overridden, because Humans take all damage assigned to them
 
 }

@@ -1,20 +1,20 @@
 
 
 /**
- * The Human class implements a wrapper for the base Creature class with the following additions
- * Implements a maximum/minimum strength for the creature type [20/5]
- * Implements a maximum/minimum hitpoint total for the creature type [25/5]
+ * The CyberDemon class implements a wrapper for the base Demon class with the following additions
+ * Implements a maximum/minimum strength for the Demon type [100/25]
+ * Implements a maximum/minimum hitpoint total for the Demon type [100/25]
  * 
  * @author Emery Vallejo
  * @version 2025-04 v1.1
  */
-public class Human extends Creature
+public class CyberDemon extends Demon
 {
     // instance variables - replace the example below with your own
-    private static final int MAX_HUMAN_HP = 25;
-    private static final int MIN_HUMAN_HP = 5;
-    private static final int MAX_HUMAN_STR = 20;
-    private static final int MIN_HUMAN_STR = 5;
+    private static final int MAX_CYBERDEMON_HP = 100;
+    private static final int MIN_CYBERDEMON_HP = 25;
+    private static final int MAX_CYBERDEMON_STR = 100;
+    private static final int MIN_CYBERDEMON_STR = 25;
 
     /**
      * Constructor for objects of class Human -
@@ -25,7 +25,7 @@ public class Human extends Creature
      * return a Human object with values in the appropriate range
      * 
      */
-    public Human()
+    public CyberDemon()
     {
         // note how the class uses the static randomizer class to
         // generate the values. This localizes the need to know 
@@ -33,13 +33,13 @@ public class Human extends Creature
         // max-min is range of values
         // range + min ensures that the values don't start at one.
         super(
-            Randomizer.nextInt(MAX_HUMAN_STR-MIN_HUMAN_STR)+MIN_HUMAN_STR,
-            Randomizer.nextInt(MAX_HUMAN_HP-MIN_HUMAN_HP)+MIN_HUMAN_HP        
+        MAX_CYBERDEMON_STR,
+        MIN_CYBERDEMON_STR,
+        MAX_CYBERDEMON_HP,
+        MIN_CYBERDEMON_HP
         );
           
     }
-    
-    
     // attack() - not overridden because Humans generate basic damage
     // takeDamage(int) - not overridden, because Humans take all damage assigned to them
 
